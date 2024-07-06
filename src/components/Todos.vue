@@ -14,7 +14,7 @@ function listTodos() {
     next: ({ items, isSynced }) => {
       todos.value = items
      },
-  }); 
+  });
 }
 
 function createTodo() {
@@ -25,7 +25,11 @@ function createTodo() {
     listTodos();
   });
 }
-    
+
+function deleteTodo(id: string) {
+  client.models.Todo.delete({ id })
+}
+
 // fetch todos when the component is mounted
  onMounted(() => {
   listTodos();
@@ -38,9 +42,10 @@ function createTodo() {
     <h1>My todos</h1>
     <button @click="createTodo">+ new</button>
     <ul>
-      <li 
-        v-for="todo in todos" 
-        :key="todo.id">
+      <li
+        v-for="todo in todos"
+        :key="todo.id"
+        @click="deleteTodo(todo.id)">
         {{ todo.content }}
       </li>
     </ul>
