@@ -6,7 +6,6 @@ import { generateClient } from 'aws-amplify/data';
 
 const client = generateClient<Schema>();
 
-// create a reactive reference to the array of todos
 const todos = ref<Array<Schema['Todo']["type"]>>([]);
 
 function listTodos() {
@@ -19,10 +18,8 @@ function listTodos() {
 
 function createTodo() {
   client.models.Todo.create({
-    content: window.prompt("Todo content"),
-    detail: "detail hogehoeg"
+    content: window.prompt("Todo content")
   }).then(() => {
-    // After creating a new todo, update the list of todos
     listTodos();
   });
 }
@@ -31,7 +28,6 @@ function deleteTodo(id: string) {
   client.models.Todo.delete({ id })
 }
 
-// fetch todos when the component is mounted
  onMounted(() => {
   listTodos();
 });
@@ -41,7 +37,7 @@ function deleteTodo(id: string) {
 <template>
   <main>
     <h1>My todos</h1>
-    <button @click="createTodo">+ new</button>
+    <v-btn color="primary" @click="createTodo">+ new</v-btn>
     <ul>
       <li
         v-for="todo in todos"
@@ -50,12 +46,5 @@ function deleteTodo(id: string) {
         {{ todo.content }}
       </li>
     </ul>
-    <div>
-      🥳 App successfully hosted. Try creating a new todo.
-      <br />
-      <a href="https://docs.amplify.aws/gen2/start/quickstart/nextjs-pages-router/">
-        Review next steps of this tutorial.
-      </a>
-    </div>
   </main>
 </template>
