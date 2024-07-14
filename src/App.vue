@@ -15,4 +15,3 @@ import "@aws-amplify/ui-vue/styles.css";
     </authenticator>
   </main>
 </template>
-
