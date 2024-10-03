@@ -15,7 +15,7 @@
     "aws-amplify": "^6.6.3",
     "roboto-fontface": "*",
     "vite-plugin-vuetify": "^2.0.3",
-    "vue": "^3.2.0",
+    "vue": "^3.5.10",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"
