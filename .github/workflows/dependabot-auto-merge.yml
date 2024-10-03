@@ -1,9 +1,9 @@
 name: Dependabot auto-merge
-on: 
+on:
   workflow_run:
-    workflows: ["Dummy CI"]
+    workflows: ["Dummy CI"]  # 別のワークフロー名を指定
     types:
-      - completed
+      - completed  # 完了したときにトリガー
 
 permissions:
   pull-requests: write
@@ -18,18 +18,19 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          
+
       - name: Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v2.2.0
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Set PR URL
+        run: echo "PR_URL=${{ github.event.pull_request.html_url }}" >> $GITHUB_ENV
 
       - name: Enable auto-merge for Dependabot PRs
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-minor' }}
-        run: |
-          gh pr review --approve "$PR_URL"
-          gh pr merge --auto --merge "$PR_URL"
+        run: gh pr merge --auto --merge "$PR_URL"
         env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
