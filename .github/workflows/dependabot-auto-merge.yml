@@ -1,5 +1,6 @@
 name: Dependabot auto-merge
 on:
+  pull_request_target:
   workflow_run:
     workflows: ["Dummy CI"]  # 別のワークフロー名を指定
     types:
