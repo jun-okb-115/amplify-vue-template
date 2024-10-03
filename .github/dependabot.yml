@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+      time: "09:45"
+      timezone: "Asia/Tokyo"
+    labels:
+      - "dependencies"
+    reviewers:
+      - "jun-okb-115"
+    commit-message:
+      prefix: "dependabot: "
