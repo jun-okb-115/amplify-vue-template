@@ -33,7 +33,7 @@
     "constructs": "^10.3.0",
     "esbuild": "^0.20.2",
     "npm-run-all2": "^6.1.2",
-    "tsx": "^4.7.2",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.2",
     "vite": "^5.4.8",
     "vue-cli-plugin-vuetify": "~2.5.8",
