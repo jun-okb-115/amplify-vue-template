@@ -8,7 +8,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    # if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: metadata
@@ -18,7 +18,7 @@ jobs:
 
       - name: Enable auto-merge for Dependabot PRs
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
-        run: gh pr comment -b "@dependabot merge"
+        run: gh pr comment $PR_NUMBER -b "@dependabot merge"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
+          PR_NUMBER: ${{ github.event.number }}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
