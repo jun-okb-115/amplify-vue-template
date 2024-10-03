@@ -1,5 +1,10 @@
 name: Dependabot auto-merge
-on: pull_request_target
+on: 
+  pull_request_target:
+  workflow_run:
+    workflows: ["Dummy CI"]
+    types:
+      - completed
 
 permissions:
   pull-requests: write
@@ -8,7 +13,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.actor == 'dependabot[bot]' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
