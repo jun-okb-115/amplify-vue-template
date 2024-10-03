@@ -27,7 +27,6 @@ jobs:
 
       - name: Enable auto-merge for Dependabot PRs
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-minor' }}
-        run: gh pr comment $PR_NUMBER -b "@dependabot merge"
+        run: gh pr merge ${{ github.event.pull_request.number }} --auto
         env:
-          PR_NUMBER: ${{ github.event.number }}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
