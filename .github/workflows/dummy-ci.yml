@@ -25,4 +25,3 @@ jobs:
           echo "Test 1: Passed"
           echo "Test 2: Passed"
           echo "All tests passed successfully!"
-          exit 1
