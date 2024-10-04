@@ -28,7 +28,7 @@
     "@types/webfontloader": "^1.0.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/tsconfig": "^0.5.1",
-    "aws-cdk": "^2.137.0",
+    "aws-cdk": "^2.161.0",
     "aws-cdk-lib": "^2.137.0",
     "constructs": "^10.3.0",
     "esbuild": "^0.24.0",
