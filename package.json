@@ -14,7 +14,7 @@
     "@mdi/font": "5.9.55",
     "aws-amplify": "^6.1",
     "roboto-fontface": "*",
-    "vite-plugin-vuetify": "^2.0.3",
+    "vite-plugin-vuetify": "^2.0.4",
     "vue": "^3.4.10",
     "vue-router": "^4.0.0",
     "vuetify": "^3.5",
