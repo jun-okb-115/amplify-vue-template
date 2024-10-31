@@ -3,11 +3,11 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
-      time: "09:45"
-      timezone: "Asia/Tokyo"
+      interval: ${{secrets.INTERVAL}}
+      time: ${{secrets.TIME}}
+      timezone: ${{secrets.TIMEZONE}}
     labels:
-      - "dependencies"
+      - ${{secrets.LABELS}}
     reviewers:
       - "jun-okb-115"
     commit-message:
